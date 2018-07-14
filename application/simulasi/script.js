@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $('#provinsi_1').on('change', function () {
         prov = $('#provinsi_1').val();
-        var spanProv = $('option:selected', this).attr('data-value');       
+        var spanProv = $('option:selected', this).attr('data-value');
         $('#spanProv').html(spanProv);
+        GetDapil(prov);
 
         $('#dapil_1').on('change', function () {
             dapils = $('#dapil_1').val();
-            var spanDapil = $('option:selected', this).attr('data-value');            
+            var spanDapil = $('option:selected', this).attr('data-value');
             $('#spanDapil').html(spanDapil);
 
             var dataTable = $('#lookup').DataTable({
@@ -71,6 +72,7 @@ $(document).ready(function () {
 
     var items_prov = '';
     var items_dapil = '';
+    var items_partai = '';
 
     $.ajax({
         url: 'application/option_prov.php',
@@ -85,15 +87,31 @@ $(document).ready(function () {
         }
     });
 
+    function GetDapil(action) {
+        $.ajax({
+            url: 'application/option_dapil.php?KodeProv=' + action,
+            dataType: 'JSON',
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+                });
+
+                $('.dapil_1, .dapil_2').append(items_dapil);
+            }
+        });
+    }
+
+
+
     $.ajax({
-        url: 'application/option_dapil.php',
+        url: 'application/option_partai.php',
         dataType: 'JSON',
         success: function (data) {
             $.each(data, function (key, value) {
-                items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+                items_partai += '<option value="' + value.kode_partai + '" data-value="' + value.nama_partai + '">' + value.nama_partai + '</option>';
             });
 
-            $('.dapil_1, .dapil_2').append(items_dapil);
+            $('.partai').append(items_partai);
         }
     });
 

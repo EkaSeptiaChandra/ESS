@@ -75,14 +75,10 @@
                                         <option>PILIH PROVINSI</option>	                                 
                                     </select>
                                     <select class="form-control select2 dapil_2" id="dapil_2" name="dapil">
-                                        <option>PILIH DAPIL</option>
-                                        <?php
-                                        ?>		                                 
+                                        <option>PILIH DAPIL</option>	                                 
                                     </select>
-                                    <select class="form-control select2">
-                                        <option>PILIH PARTAI</option>
-                                        <?php
-                                        ?>		                                 
+                                    <select class="form-control select2 partai" id="partai" name="partai">
+                                        <option>PILIH PARTAI</option>	                                 
                                     </select>
                                 </div>
                             </div>    
