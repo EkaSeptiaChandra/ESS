@@ -340,23 +340,25 @@
                                             </section>
                                             <h3>SIMULASI</h3>
                                             <section>
-                                                <div class="card-box">											
-                                                    <div class="col-md-6">											
-                                                        <select class="form-control select2 provinsi_2" id="provinsi_2" name="provinsi">
-                                                            <option>PILIH PROVINSI</option>	                                 
-                                                        </select>
-                                                        <select class="form-control select2 dapil_2" id="dapil_2" name="dapil">
-                                                            <option>PILIH DAPIL</option>
-                                                            <?php
-                                                            
-                                                            ?>		                                 
-                                                        </select>
-                                                        <select class="form-control select2">
-                                                            <option>PILIH PARTAI</option>
-                                                            <?php
-                                                            
-                                                            ?>		                                 
-                                                        </select>
+                                                <div class="card-box">	
+                                                    <div class="card-box table-responsive">
+                                                        <div class="col-md-6">											
+                                                            <select class="form-control select2 provinsi_2" id="provinsi_2" name="provinsi">
+                                                                <option>PILIH PROVINSI</option>	                                 
+                                                            </select>
+                                                            <select class="form-control select2 dapil_2" id="dapil_2" name="dapil">
+                                                                <option>PILIH DAPIL</option>
+                                                                <?php
+
+                                                                ?>		                                 
+                                                            </select>
+                                                            <select class="form-control select2">
+                                                                <option>PILIH PARTAI</option>
+                                                                <?php
+
+                                                                ?>		                                 
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>    
                                             </section>

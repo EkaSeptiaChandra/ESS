@@ -5,9 +5,10 @@ $connString = $db->getConstring();
 
 $params = $_REQUEST;
 $tb_name = "dapil";
+$kode_dapil = "001";
 
 $optionClass = new Option($connString);
-$optionClass->getOption($params, $tb_name);
+$optionClass->getOption($params, $kode_dapil);
 
 class Option {
     
@@ -17,9 +18,9 @@ class Option {
         $this->conn = $connString;
     }
     
-    function getOption($params, $tb_name) {
+    function getOption($params, $kode_dapil) {
         $json_data = [];
-        $sql = "SELECT * FROM ".$tb_name;
+        $sql = "call SpDapil('$kode_dapil')";
         $result = mysqli_query($this->conn, $sql);
         
         while ($row = mysqli_fetch_assoc($result)){
