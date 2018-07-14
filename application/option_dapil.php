@@ -1,14 +1,13 @@
 <?php
-require_once '../config/config.php';
+require_once '../config/class.php';
 $db = new dbObj();
 $connString = $db->getConstring();
 
 $params = $_REQUEST;
 $tb_name = "dapil";
-$kode_dapil = "001";
 
 $optionClass = new Option($connString);
-$optionClass->getOption($params, $kode_dapil);
+$optionClass->getOption($params, $tb_name);
 
 class Option {
     
@@ -18,9 +17,9 @@ class Option {
         $this->conn = $connString;
     }
     
-    function getOption($params, $kode_dapil) {
+    function getOption($params, $tb_name) {
         $json_data = [];
-        $sql = "call SpDapil('$kode_dapil')";
+        $sql = "SELECT * FROM ".$tb_name;
         $result = mysqli_query($this->conn, $sql);
         
         while ($row = mysqli_fetch_assoc($result)){
