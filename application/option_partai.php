@@ -4,10 +4,10 @@ $db = new dbObj();
 $connString = $db->getConstring();
 
 $params = $_REQUEST;
-$kode_user = "001";
+$tb_name = "partai";
 
 $optionClass = new Option($connString);
-$optionClass->getOption($params, $kode_user);
+$optionClass->getOption($params, $tb_name);
 
 class Option {
     
@@ -17,9 +17,9 @@ class Option {
         $this->conn = $connString;
     }
     
-    function getOption($params, $kode_user) {
+    function getOption($params, $tb_name) {
         $json_data = [];
-        $sql = "CALL SpProvinsi('$kode_user')";
+        $sql = "select kode_partai, nama_partai from " .$tb_name;
         $result = mysqli_query($this->conn, $sql);
         
         while ($row = mysqli_fetch_assoc($result)){

@@ -347,16 +347,10 @@
                                                                 <option>PILIH PROVINSI</option>	                                 
                                                             </select>
                                                             <select class="form-control select2 dapil_2" id="dapil_2" name="dapil">
-                                                                <option>PILIH DAPIL</option>
-                                                                <?php
-
-                                                                ?>		                                 
+                                                                <option>PILIH DAPIL</option>	                                 
                                                             </select>
-                                                            <select class="form-control select2">
-                                                                <option>PILIH PARTAI</option>
-                                                                <?php
-
-                                                                ?>		                                 
+                                                            <select class="form-control select2 partai" id="partai" name="partai">
+                                                                <option>PILIH PARTAI</option>	                                 
                                                             </select>
                                                         </div>
                                                     </div>
@@ -522,6 +516,7 @@
 
                 var items_prov = '';
                 var items_dapil = '';
+                var items_partai = '';
 
                 $.ajax({
                     url: 'application/option_prov.php',
@@ -545,6 +540,18 @@
                         });
 
                         $('.dapil_1, .dapil_2').append(items_dapil);
+                    }
+                });
+                
+                $.ajax({
+                    url: 'application/option_partai.php',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+                            items_partai += '<option value="' + value.kode_partai + '">' + value.nama_partai + '</option>';
+                        });
+
+                        $('.partai').append(items_partai);
                     }
                 });
 
