@@ -30,10 +30,11 @@ $(document).ready(function () {
                         });
                     });
 
-                    $('.act_btn').on('click', function (e) {
+                    $('.act_btn').on('change', function (e) {
                         e.preventDefault();
                         var com = $(this).attr('data-original-title');
                         var id = $(this).attr('id');
+                        alert(id)
 
                         if (com == 'Edit') {
                             $('#add_model').modal({backdrop: 'static', keyboard: false});
@@ -69,7 +70,7 @@ $(document).ready(function () {
             });//end datatable
         });
     });
-
+      
     var items_prov = '';
     var items_dapil = '';
     var items_partai = '';
@@ -130,13 +131,13 @@ $(document).ready(function () {
                     npartai.push(data[i].nama_partai);
                     spartai.push(data[i].persentase);
                 }
-                console.log(npartai)
+                console.log(spartai)
 
                 var chartdata = {
                     labels: npartai,
                     datasets: [
                         {
-                            label: '',
+                            label: 'Suara Partai',
                             backgroundColor: window.chartColors.blue,
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
@@ -145,7 +146,7 @@ $(document).ready(function () {
                             data: spartai
                         },
                         {
-                            label: '',
+                            label: 'Suara Caleg',
                             backgroundColor: window.chartColors.orange,
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
