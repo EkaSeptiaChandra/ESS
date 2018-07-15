@@ -2,7 +2,7 @@
 class dbObj {
 
     //var $DB_Host = "localhost"; //koneksi localhost
-    var $DB_Host = "100.10.1.101"; //koneksi server
+    var $DB_Host = "192.168.1.7"; //koneksi server
     var $DB_Name = "dbess"; //nama database
     var $DB_User = "ess"; //user database
     var $DB_Pass = ""; //password database

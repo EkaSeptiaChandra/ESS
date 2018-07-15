@@ -33,8 +33,9 @@
         <script>
             var resizefunc = [];
         </script>
-        <!-- jQuery  -->
+        <!-- jQuery  -->                        
         <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
@@ -44,8 +45,15 @@
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
+        
         <script src="assets/plugins/bootstrap-table/js/bootstrap-table.min.js"></script>
         <script src="assets/pages/jquery.bs-table.js"></script>
+        
+        <!-- Chart JS -->
+<!--        <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
+        <script src="assets/pages/jquery.chartjs.init.js"></script>-->
+<!--        <script src="assets/js/Chart.min.js"></script>-->
+                                
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
@@ -85,13 +93,7 @@
         <script src="assets/plugins/datatables/dataTables.scroller.min.js"></script>
         <script src="assets/plugins/datatables/dataTables.colVis.js"></script>
         <script src="assets/plugins/datatables/dataTables.fixedColumns.min.js"></script>
-        <!-- Chart JS -->
-        <script src="assets/plugins/chart.js/chart.min.js"></script>
-        <script src="assets/pages/jquery.chartjs.init.js"></script>
-        <script>
-            
-        </script>
-        
+                                
         <!-- get Jquery -->
         <?= $main->getActScript() ?>
         

@@ -50,4 +50,9 @@
         border: none;
     }
 </style>
+
 <script src="assets/js/modernizr.min.js"></script>
+
+<!-- Chart JS -->        
+<script src="assets/dist/Chart.bundle.js"></script>
+<script src="assets/dist/utils.js"></script>

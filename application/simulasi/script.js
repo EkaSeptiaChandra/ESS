@@ -101,8 +101,6 @@ $(document).ready(function () {
         });
     }
 
-
-
     $.ajax({
         url: 'application/option_partai.php',
         dataType: 'JSON',
@@ -115,15 +113,61 @@ $(document).ready(function () {
         }
     });
 
-    /*   $('#btnNext').click(function() {
-     var id_prov = $('#provinsi').val();
-     var id_dapil = $('#dapil').val();
-     
-     $.ajax({
-     type: 'POST',
-     dataType: 'JSON',
-     url: 'application/ajax.php?id_prov='+id_prov+'&id_dapil='+id_dapil
-     
-     });
-     }); */
+    $('#dapil_2').on('change', function () {
+        dapil2 = $('#dapil_2').val();
+
+        $.ajax({
+            url: "application/simulasi/data_partai.php?dapil=" + dapil2,
+            dataType: 'json',
+            type: 'get',
+            success: function (data) {
+                //console.log(data);
+                var npartai = [];
+                var spartai = [];
+                var scaleg = [];
+
+                for (var i in data) {
+                    npartai.push(data[i].nama_partai);
+                    spartai.push(data[i].persentase);
+                }
+                console.log(npartai)
+
+                var chartdata = {
+                    labels: npartai,
+                    datasets: [
+                        {
+                            label: '',
+                            backgroundColor: window.chartColors.blue,
+                            borderColor: 'rgba(200, 200, 200, 0.75)',
+                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                            stack: 1,
+                            data: spartai
+                        },
+                        {
+                            label: '',
+                            backgroundColor: window.chartColors.orange,
+                            borderColor: 'rgba(200, 200, 200, 0.75)',
+                            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                            stack: 0,
+                            data: spartai
+                        }
+                    ]
+                };
+
+                var ctx = $("#bar");
+
+                var barGraph = new Chart(ctx, {
+                    type: 'bar',
+                    data: chartdata
+                });
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+
 });
