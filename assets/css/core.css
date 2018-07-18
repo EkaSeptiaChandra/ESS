@@ -102,12 +102,13 @@ a:focus {
 .footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   bottom: 0px;
-  color: #58666e;
+  color: #fff;
+  background-color: #36404a;
   text-align: left !important;
-  padding: 20px 30px;
+  padding: 15px 15px;
   position: absolute;
   right: 0px;
-  left: 240px;
+  left: 200px;
   font-size: 13px;
 }
 #wrapper {
@@ -1272,7 +1273,7 @@ pre {
 .side-menu {
   bottom: 0;
   top: 0;
-  width: 240px;
+  width: 200px;
   z-index: 2;
 }
 .side-menu.left {
@@ -1290,13 +1291,13 @@ body.fixed-left .side-menu.left {
   position: fixed;
 }
 .content-page {
-  margin-left: 240px;
+  margin-left: 200px;
   overflow: hidden;
 }
 .content-page > .content {
   margin-bottom: 60px;
   margin-top: 60px;
-  padding: 20px 5px 15px 5px;
+/*  padding: 20px 5px 15px 5px;*/
 }
 .button-menu-mobile {
   background: transparent;

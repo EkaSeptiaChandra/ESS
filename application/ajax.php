@@ -9,7 +9,6 @@ $eClass = new PilhCaleg($connString);
 
 $requestData = $_REQUEST;
 
-$idprov = '';
 $iddapil = $_GET['dapil'];
 
 $columns = array(
@@ -21,7 +20,7 @@ $columns = array(
     5 => 'suara_partai'
 );
 
-$eClass->getData($requestData, $columns, $idprov, $iddapil);
+$eClass->getData($requestData, $columns, $iddapil);
 
 class PilhCaleg {
 
@@ -32,12 +31,12 @@ class PilhCaleg {
         $this->conn = $connString;
     }
 
-    public function getData($req, $col, $idprov, $iddapil) {
-        $this->data = $this->getRecords($req, $col, $idprov, $iddapil);
+    public function getData($req, $col, $iddapil) {
+        $this->data = $this->getRecords($req, $col, $iddapil);
         echo json_encode($this->data);
     }
 
-    function getRecords($req, $col, $idprov, $iddapil) {
+    function getRecords($req, $col, $iddapil) {
         // $sqlTot = "SELECT kode_kabupaten_kota, nama_provinsi, nama_kabupaten_kota ";
         // $sqlTot .= " FROM ".$tb_name;
         // $sqlTot .= " JOIN provinsi ON provinsi.kode_provinsi = kabupaten_kota.kode_provinsi";
@@ -96,8 +95,8 @@ class PilhCaleg {
             $nestedData[] = $row['kode_caleg'];
             $nestedData[] = $row['nama_caleg'];
             $nestedData[] = $row['nama_partai'];
-            $nestedData[] = $row['suara_caleg'];
-            $nestedData[] = $row['suara_partai'];
+            $nestedData[] = '<div align="right">'.number_format($row['suara_caleg']).'</div>';
+            $nestedData[] = '<div align="right">'.number_format($row['suara_partai']).'</div>';
 
             $data[] = $nestedData;
         }
