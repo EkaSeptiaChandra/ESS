@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $('#provinsi_1').on('change', function () {
+        dropdown = $('.dapil_1').empty();
+        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
+        dropdown.prop('selectedIndex', 0);
         prov = $('#provinsi_1').val();
         var spanProv = $('option:selected', this).attr('data-value');
         $('#spanProv').html(spanProv);
@@ -81,10 +84,13 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function (data) {
                 $.each(data, function (key, value) {
-                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+//                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+                    $('.dapil_1, .dapil_2').append($('<option></option>').attr({
+                        'value': value.kode_dapil,
+                        'data-value': value.nama_dapil
+                    }).text(value.nama_dapil))
                 });
-
-                $('.dapil_1, .dapil_2').append(items_dapil);
+//                $('.dapil_1, .dapil_2').append(items_dapil);
             }
         });
     }
@@ -100,6 +106,16 @@ $(document).ready(function () {
 
             $('.partai').append(items_partai);
         }
+    });
+    
+    $('#provinsi_2').on('change', function () {
+        dropdown = $('.dapil_2').empty();
+        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
+        dropdown.prop('selectedIndex', 0);
+        prov = $('#provinsi_2').val();
+        var spanProv = $('option:selected', this).attr('data-value');
+        $('#spanProv').html(spanProv);
+        GetDapil(prov);
     });
 
     $('#partai').on('change', function () {
@@ -153,8 +169,8 @@ $(document).ready(function () {
                 var barGraph = new Chart(ctx, {
                     type: 'bar',
                     data: chartdata,
-                    responsive: true,
-                    maintainAspectRatio: false,
+//                    responsive: true,
+//                    maintainAspectRatio: false,
                     options: {
                         scales: {
                             yAxes: [{

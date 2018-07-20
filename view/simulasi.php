@@ -11,9 +11,9 @@
         <div class="col-md-12">
             <div class="card-box">
                 <h2 class="m-t-0 text-center">
-                    <b>Simulasi Dewan Perwakilan Rakyat RI (DPR RI)</b>
+                    <b>SIMULASI DEWAN PERWAKILAN RAKYAT RI (DPR RI)</b>
                 </h2>
-                <p></p>
+                <br>
                 <form id="basic-form" action="#">
                     <div>
                         <h3>PILIH DATA</h3>
@@ -59,11 +59,14 @@
                                                width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th class="nosort">PILIH</th>
-                                                    <th>KODE CALEG</th><th>NAMA CALEG</th>
-                                                    <th>NAMA PARTAI</th><th>SUARA CALEG</th>
-                                                    <th>SUARA PARTAI</th>
-                                                    <th>(%) SUARA CALEG</th><th>(%) SUARA PARTAI</th>
+                                                    <th class="nosort"><center>PILIH</center></th>
+                                                    <th><center>KODE CALEG</center></th>
+                                                    <th><center>NAMA CALEG</center></th>
+                                                    <th><center>NAMA PARTAI</center></th>
+                                                    <th><center>SUARA CALEG</center></th>
+                                                    <th><center>SUARA PARTAI</center></th>
+                                                    <th><center>(%) SUARA CALEG</center></th>
+                                                    <th><center>(%) SUARA PARTAI</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>																					
@@ -110,9 +113,9 @@
                                 <div class="col-lg-12">
                                     <h4 class="m-t-0 header-title"><b>Hasil Simulasi</b></h4>
                                     <div class="graph">
-                                        <div class="graph-container">
-                                            <canvas id="bar"></canvas>
-                                        </div>
+                                        <!--<div class="graph-container">-->
+                                            <canvas id="bar" height = "80px"></canvas>
+<!--                                        </div>-->
                                     </div>
                                     
                                     <p></p>
@@ -121,9 +124,11 @@
                                            width="100%">
                                         <thead>
                                             <tr>                                                
-                                                <th>KODE CALEG</th><th>NAMA CALEG</th>
-                                                <th>NAMA PARTAI</th><th>JUMLAH SUARA</th>                                                
-                                                <th>PERSENTASE SUARA</th>
+                                                <th><center>KODE CALEG</center></th>
+                                                <th><center>NAMA CALEG</center></th>
+                                                <th><center>NAMA PARTAI</center></th>
+                                                <th><center>JUMLAH SUARA</center></th>                                                
+                                                <th><center>PERSENTASE SUARA</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>																					
