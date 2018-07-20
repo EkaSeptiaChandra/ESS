@@ -8,12 +8,12 @@ $(document).ready(function () {
         $('#dapil_1').on('change', function (e) {
             e.preventDefault();
             dapils = $('#dapil_1').val();
-            console.log(dapils)
 
             var spanDapil = $('option:selected', this).attr('data-value');
             $('#spanDapil').html(spanDapil);
 
             var dataTable = $('#lookup').DataTable({
+                
                 retrieve: true,
                 'autoWidth': true,
                 'aoColumnDefs': [
@@ -24,7 +24,14 @@ $(document).ready(function () {
                 'ajax': {
                     type: 'POST',
                     dataType: 'JSON',
-                    url: 'application/ajax.php?dapil=' + dapils
+                    url: 'application/ajax.php?dapil=' + dapils,
+                    error: function () {
+                        $.Notification.notify(
+                                'error', 'top center',
+                                'Warning',
+                                'Data tidak tersedia'
+                                );
+                    }
                 },
                 fnDrawCallback: function (oSettings) {
 
@@ -56,7 +63,7 @@ $(document).ready(function () {
 
     $.ajax({
         url: 'application/option_prov.php',
-        type: 'get',
+        type: 'POST',
         dataType: 'JSON',
         success: function (data) {
             $.each(data, function (key, value) {
@@ -70,6 +77,7 @@ $(document).ready(function () {
     function GetDapil(action) {
         $.ajax({
             url: 'application/option_dapil.php?KodeProv=' + action,
+            type: 'POST',
             dataType: 'JSON',
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -83,6 +91,7 @@ $(document).ready(function () {
 
     $.ajax({
         url: 'application/option_partai.php',
+        type: 'POST',
         dataType: 'JSON',
         success: function (data) {
             $.each(data, function (key, value) {
@@ -101,7 +110,7 @@ $(document).ready(function () {
         $.ajax({
             url: 'application/simulasi/graph.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
             dataType: 'json',
-            type: 'get',
+            type: 'post',
             success: function (data) {
                 //console.log(data);
                 var npartai = [];
@@ -120,7 +129,7 @@ $(document).ready(function () {
                     datasets: [
                         {
                             label: 'Suara Partai',
-                            backgroundColor: window.chartColors.blue,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
                             hoverBackgroundColor: 'rgb(73, 139, 218)',
                             hoverBorderColor: 'rgb(73, 139, 218)',
@@ -129,10 +138,10 @@ $(document).ready(function () {
                         },
                         {
                             label: 'Suara Caleg',
-                            backgroundColor: window.chartColors.orange,
+                            backgroundColor: 'rgba(255, 159, 64, 0.5)',
                             borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgb(253, 232, 132)',
-                            hoverBorderColor: 'rgb(253, 232, 132)',
+                            hoverBackgroundColor: 'rgb(255, 159, 64)',
+                            hoverBorderColor: 'rgb(255, 159, 64)',
                             stack: 0,
                             data: scaleg
                         }
@@ -143,7 +152,20 @@ $(document).ready(function () {
 
                 var barGraph = new Chart(ctx, {
                     type: 'bar',
-                    data: chartdata
+                    data: chartdata,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                    ticks: {
+                                        fontSize: 10,
+                                        beginAtZero: true
+                                    }
+                                }]
+                        }
+
+                    }
                 });
             },
             error: function (data) {
@@ -151,7 +173,7 @@ $(document).ready(function () {
             }
         });//end chart
 
-        var dataTable = $('#lookup2').DataTable({
+        var dataTable2 = $('#lookup2').DataTable({            
             retrieve: true,
             'autoWidth': true,
             'aoColumnDefs': [
@@ -163,6 +185,13 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'JSON',
                 url: 'application/simulasi/ajax.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
+                error: function () {
+                    $.Notification.notify(
+                            'error', 'top center',
+                            'Warning',
+                            'Data tidak tersedia'
+                            );
+                }
             },
             fnDrawCallback: function (oSettings) {
 
@@ -184,5 +213,7 @@ $(document).ready(function () {
                 });
             }
         });//end datatable
+        dataTable2.ajax.url('application/simulasi/ajax.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2).load();
+
     });
 });
