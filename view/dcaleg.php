@@ -1,25 +1,47 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card-box">
-            <div class="form-group">
+            <!--<div class="form-group">-->
 <!--                <button id="btn_add" class="btn btn-sm btn-primary">
                     <i class="fa fa-plus"></i>
                     Add client
                 </button>-->                
-            </div>
-
-            <table id="lookup"
-                   class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
-                   width="100%">
-                <thead>
-                    <tr>
-                        <th class="nosort" style="width: auto">#</th>
-                        <th>KODE CALEG</th><th>NAMA CALEG</th>
-                        <th>DAPIL</th><th>NAMA PARTAI</th><th>SUARA CALEG</th>                                
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <!--</div>-->
+            <!--<div class="card-box">-->
+                <h2><b><center>DATA PEROLEHAN SUARA CALEG</center></b></h2>
+                <br>     
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control select2 provinsi_1" id = "provinsi_1" name = "provinsi">
+                                <option>PILIH PROVINSI</option>
+                            </select>
+                        </div>                                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control select2 dapil_1" id = "dapil_1" name = "dapil" >
+                                <option>PILIH DAPIL</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>                                
+                <table id="lookup"
+                       class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+                       width="100%">
+                    <thead>
+                        <tr>
+                            <th class="nosort" style="width: auto">#</th>
+                            <th><center>KODE CALEG</center></th>
+                            <th><center>NAMA CALEG</center></th>
+                            <th><center>DAPIL</center></th>
+                            <th><center>NAMA PARTAI</center></th>
+                            <th><center>PEROLEHAN SUARA</center></th>                                
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            <!--</div>-->
         </div>
     </div>
 </div>
