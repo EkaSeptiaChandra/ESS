@@ -126,7 +126,6 @@ $(document).ready(function () {
         $('#bar').remove();
         $('#barDiv').html("<canvas id='bar' height='80px'></canvas>");
 
-
         $.ajax({
             url: 'application/simulasi/graph.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
             dataType: 'json',
