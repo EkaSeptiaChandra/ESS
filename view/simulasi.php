@@ -113,9 +113,9 @@
                                 <div class="col-lg-12">
                                     <h4 class="m-t-0 header-title"><b>Hasil Simulasi</b></h4>
                                     <div class="graph">
-                                        <!--<div class="graph-container">-->
+                                        <div class="graph-container" id="barDiv">
                                             <canvas id="bar" height = "80px"></canvas>
-<!--                                        </div>-->
+                                        </div>
                                     </div>
                                     
                                     <p></p>

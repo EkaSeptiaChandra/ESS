@@ -123,12 +123,16 @@ $(document).ready(function () {
         dapil2 = $('#dapil_2').val();
         partai2 = $('#partai').val();
 
+        $('#bar').remove();
+        $('#barDiv').html("<canvas id='bar' height='80px'></canvas>");
+
+
         $.ajax({
             url: 'application/simulasi/graph.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
             dataType: 'json',
             type: 'post',
+
             success: function (data) {
-                //console.log(data);
                 var npartai = [];
                 var spartai = [];
                 var scaleg = [];
@@ -138,7 +142,7 @@ $(document).ready(function () {
                     spartai.push(data[i].persentase_partai);
                     scaleg.push(data[i].persentase_caleg);
                 }
-                console.log(spartai)
+               // console.log(spartai)
 
                 var chartdata = {
                     labels: npartai,
