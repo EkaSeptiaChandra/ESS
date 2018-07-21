@@ -3,7 +3,7 @@
         <!--- Divider -->
         <div id="sidebar-menu">
             <ul>
-                <li class="text-muted menu-title">Navigation</li>                            
+                <li class="text-muted menu-title">Navigasi</li>                            
                 <li>
                     <a href="?page=home" class="">
                         <i class="ti-dashboard"></i>
@@ -13,7 +13,7 @@
                 <li>
                     <a href="?page=dcaleg" class="">
                         <i class="md md-account-child"></i>
-                        <span>Data Caleg</span>
+                        <span>Perolehan Suara</span>
                     </a>
                 </li>
                 <li>

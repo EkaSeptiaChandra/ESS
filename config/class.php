@@ -111,7 +111,7 @@ class User {
     public function radioAct($id) {
         return '
         <div align="center">
-        <input type="radio" name="rd" id="'.$id.'" value="'.$id.'" class="act_btn" data-original-title="Edit" title="Edit">                
+        <input type="radio" name="rd" id="'.$id.'" value="'.$id.'" class="act_btn" data-original-title="Pilih" title="Pilih">                
         </div>';
     }
 

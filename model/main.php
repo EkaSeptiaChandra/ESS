@@ -46,6 +46,9 @@
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         
+        <script src="assets/plugins/notifyjs/js/notify.js"></script>
+        <script src="assets/plugins/notifications/notify-metro.js"></script>  
+        
         <script src="assets/plugins/bootstrap-table/js/bootstrap-table.min.js"></script>
         <script src="assets/pages/jquery.bs-table.js"></script>
         
