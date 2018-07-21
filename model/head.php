@@ -54,8 +54,7 @@
         position: relative;
         overflow-x: scroll;
         width: 100%;
-        .graph-container {
-            height: 400px;
+        .graph-container {            
             width: 100%;
             min-width: 100%
         }

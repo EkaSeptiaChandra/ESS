@@ -10,11 +10,24 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="?page=dcaleg" class="">
+                <li class="has-sub">
+                    <a href="#" class="">
                         <i class="md md-account-child"></i>
                         <span>Perolehan Suara</span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">
+                                <span>Suara Caleg</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Suara Partai</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="?page=simulasi">
