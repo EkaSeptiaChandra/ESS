@@ -18,10 +18,10 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="#">Suara Caleg</a>
+                            <a href="?page=scaleg">Suara Caleg</a>
                         </li>
                         <li>
-                            <a href="#">Suara Partai</a>
+                            <a href="?page=spartai">Suara Partai</a>
                         </li>
                     </ul>
                 </li>

@@ -106,6 +106,9 @@ $(document).ready(function () {
         caleg2 = $('#edit_id').val();
         dapil2 = $('#dapil_2').val();
         partai2 = $('#partai').val();
+        
+        $('#bar').remove();
+        $('#barDiv').html("<canvas id='bar' height='80px'></canvas>");
 
         $.ajax({
             url: 'application/simulasi/graph.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
@@ -214,6 +217,61 @@ $(document).ready(function () {
             }
         });//end datatable
         dataTable2.ajax.url('application/simulasi/ajax.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2).load();
+        
+        var dataTable3 = $('#lookup3').DataTable({
+            searching: false,
+            paging: false,
+            lengthChange: false,
+            retrieve: true,
+            'autoWidth': true,
+            'aoColumnDefs': [
+                {'bSortable': false, 'aTargets': ['nosort']}
+            ],
+            'processing': true,
+            'serverSide': true,
+            'ajax': {
+                type: 'POST',
+                dataType: 'JSON',
+                url: 'application/simulasi/grid.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
+                error: function () {
+                    $.Notification.notify(
+                            'error', 'top center',
+                            'Warning',
+                            'Data tidak tersedia'
+                            );
+                }
+            },
+            fnDrawCallback: function (oSettings) {
 
+                $('.act_btn').each(function () {
+                    $(this).tooltip({
+                        html: true
+                    });
+                });
+
+                $('.act_btn').on('change', function (e) {
+                    e.preventDefault();
+                    var com = $(this).attr('data-original-title');
+                    var id = $(this).attr('id');
+
+                    //if (com == 'Edit') {                                                        
+                    $('#action').val('edit');
+                    $('#edit_id').val(id);
+                    //} 
+                });
+            }
+        });
+        dataTable3.ajax.url('application/simulasi/grid.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2).load();
     });
-});
+    
+    $('#htps').on('click', function() {
+        var jtps =$('#jtps').val();
+        console.log(jtps)
+        if(jtps == '') {
+            alert('Silakan Masukan Jumlah TPS');
+            $('#jtps').focus();            
+        } else if(jtps == 0) {
+            alert('Nilai Tidak Boleh 0 (Nol) !');
+        }
+    });
+});//end $ document

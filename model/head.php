@@ -51,14 +51,18 @@
     }
     .graph {
         padding: 10px;
-        position: relative;
-        overflow-x: scroll;
+        position: relative;        
         width: 100%;
         .graph-container {
             height: 400px;
             width: 100%;
             min-width: 100%
         }
+    }
+    #error {
+        color: red;
+        font-size: 10px;
+        display: inline;
     }
 </style>
 
