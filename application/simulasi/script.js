@@ -1,8 +1,5 @@
 $(document).ready(function () {
     $('#provinsi_1').on('change', function () {
-        dropdown = $('.dapil_1').empty();
-        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
-        dropdown.prop('selectedIndex', 0);
         prov = $('#provinsi_1').val();
         var spanProv = $('option:selected', this).attr('data-value');
         $('#spanProv').html(spanProv);
@@ -84,13 +81,10 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function (data) {
                 $.each(data, function (key, value) {
-//                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
-                    $('.dapil_1, .dapil_2').append($('<option></option>').attr({
-                        'value': value.kode_dapil,
-                        'data-value': value.nama_dapil
-                    }).text(value.nama_dapil))
+                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
                 });
-//                $('.dapil_1, .dapil_2').append(items_dapil);
+
+                $('.dapil_1, .dapil_2').append(items_dapil);
             }
         });
     }
@@ -107,31 +101,18 @@ $(document).ready(function () {
             $('.partai').append(items_partai);
         }
     });
-    
-    $('#provinsi_2').on('change', function () {
-        dropdown = $('.dapil_2').empty();
-        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
-        dropdown.prop('selectedIndex', 0);
-        prov = $('#provinsi_2').val();
-        
-        GetDapil(prov);
-    });
 
     $('#partai').on('change', function () {
         caleg2 = $('#edit_id').val();
         dapil2 = $('#dapil_2').val();
         partai2 = $('#partai').val();
 
-        $('#bar').remove();
-        $('#barDiv').html("<canvas id='bar' height='80px'></canvas>");
-
-
         $.ajax({
             url: 'application/simulasi/graph.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
             dataType: 'json',
             type: 'post',
-
             success: function (data) {
+                //console.log(data);
                 var npartai = [];
                 var spartai = [];
                 var scaleg = [];
@@ -141,7 +122,7 @@ $(document).ready(function () {
                     spartai.push(data[i].persentase_partai);
                     scaleg.push(data[i].persentase_caleg);
                 }
-               // console.log(spartai)
+                console.log(spartai)
 
                 var chartdata = {
                     labels: npartai,
@@ -172,8 +153,8 @@ $(document).ready(function () {
                 var barGraph = new Chart(ctx, {
                     type: 'bar',
                     data: chartdata,
-//                    responsive: true,
-//                    maintainAspectRatio: false,
+                    responsive: true,
+                    maintainAspectRatio: false,
                     options: {
                         scales: {
                             yAxes: [{
