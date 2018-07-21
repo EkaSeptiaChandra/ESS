@@ -1,10 +1,11 @@
 <?php
 class dbObj {
 
-    //var $DB_Host = "localhost"; //koneksi localhost
-    var $DB_Host = "192.168.1.7"; //koneksi server
+    var $DB_Host = "localhost"; //koneksi localhost
+    // var $DB_Host = "192.168.1.7"; //koneksi server
     var $DB_Name = "dbess"; //nama database
-    var $DB_User = "ess"; //user database
+    // var $DB_User = "ess"; //user database
+    var $DB_User = "root"; //user database
     var $DB_Pass = ""; //password database
     var $conn;
 
@@ -110,7 +111,7 @@ class User {
     public function radioAct($id) {
         return '
         <div align="center">
-        <input type="radio" name="rd" id="'.$id.'" value="'.$id.'" class="act_btn" data-original-title="Edit" title="Edit">                
+        <input type="radio" name="rd" id="'.$id.'" value="'.$id.'" class="act_btn" data-original-title="Pilih" title="Pilih">                
         </div>';
     }
 

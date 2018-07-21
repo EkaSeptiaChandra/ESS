@@ -2162,7 +2162,7 @@ ul.ColVis_collection li {
 .wizard > .content {
   background: #ffffff;
   min-height: 240px;
-  padding: 20px;
+/*  padding: 20px;*/
 }
 .wizard > .content > .body {
   padding: 0px;

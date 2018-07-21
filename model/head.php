@@ -49,6 +49,17 @@
     .table-borderless > thead > tr > th {
         border: none;
     }
+    .graph {
+        padding: 10px;
+        position: relative;
+        overflow-x: scroll;
+        width: 100%;
+        .graph-container {
+            height: 400px;
+            width: 100%;
+            min-width: 100%
+        }
+    }
 </style>
 
 <script src="assets/js/modernizr.min.js"></script>
