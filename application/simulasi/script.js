@@ -272,6 +272,19 @@ $(document).ready(function () {
             $('#jtps').focus();            
         } else if(jtps == 0) {
             alert('Nilai Tidak Boleh 0 (Nol) !');
+        } else {
+            v_dump = $.ajax({
+                url: 'application/simulasi/grid.php?prop='+jtps+'&caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2,
+                type: "POST",
+                dataType: 'JSON',
+                success: function (data, textStatus, jqXHR) {
+                    $('#add_model').modal({backdrop: 'static', keyboard: false});
+                    $('#add_model').modal('show');
+                    
+                }
+            });
+            
+            console.log(v_dump)
         }
     });
 });//end $ document
