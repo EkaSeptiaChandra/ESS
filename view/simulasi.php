@@ -156,7 +156,7 @@
                                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                                     <div class="form-group">
                                                         <label>MINIMUN PEROLEHAN SUARA PER-TPS</label>
-                                                        
+
                                                         <div class="input-group">
                                                             <input type="number" id="jtps" name="jtps" class="input-sm form-control" min="0" placeholder="MASUKAN JUMLAH TPS" required="required">
                                                             <span class="input-group-btn">
@@ -179,3 +179,25 @@
     </div>
     <!-- End row -->
 </div> <!-- container -->
+
+<div id="add_model" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="">
+                    <button type="button" id="btn_cancel" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btn_add" class="btn btn-sm btn-primary">Save</button>
+                </div>                        
+            </div>
+        </div>
+    </div>
+</div>
+
