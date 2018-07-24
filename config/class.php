@@ -2,7 +2,7 @@
 class dbObj {
 
     //var $DB_Host = "localhost"; //koneksi localhost
-    var $DB_Host = "192.168.1.7"; //koneksi server
+    var $DB_Host = "192.168.1.9"; //koneksi server
     var $DB_Name = "dbess"; //nama database
     var $DB_User = "ess"; //user database
     var $DB_Pass = ""; //password database
@@ -79,6 +79,25 @@ class Main {
     }
 
 }//end class main
+
+class Section {
+    
+    function section1() {
+        include 'view/section1.php';
+    }
+    
+    function section2() {
+        include 'view/section2.php';
+    }
+    
+    function section3() {
+        include 'view/section3.php';
+    }
+    
+    function section4() {
+        include 'view/section4.php';
+    }
+}
 
 class User {
 
