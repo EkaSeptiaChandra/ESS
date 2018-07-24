@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $('#provinsi_1').on('change', function () {
+        dropdown = $('.dapil_1').empty();
+        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
+        dropdown.prop('selectedIndex', 0);
         prov = $('#provinsi_1').val();
         var spanProv = $('option:selected', this).attr('data-value');
         $('#spanProv').html(spanProv);
@@ -81,10 +84,13 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function (data) {
                 $.each(data, function (key, value) {
-                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+//                    items_dapil += '<option value="' + value.kode_dapil + '" data-value="' + value.nama_dapil + '">' + value.nama_dapil + '</option>';
+                    $('.dapil_1, .dapil_2').append($('<option></option>').attr({
+                        'value': value.kode_dapil,
+                        'data-value': value.nama_dapil
+                    }).text(value.nama_dapil))
                 });
-
-                $('.dapil_1, .dapil_2').append(items_dapil);
+//                $('.dapil_1, .dapil_2').append(items_dapil);
             }
         });
     }
@@ -101,7 +107,17 @@ $(document).ready(function () {
             $('.partai').append(items_partai);
         }
     });
-
+    
+    $('#provinsi_2').on('change', function () {
+        dropdown = $('.dapil_2').empty();
+        dropdown.append('<option selected="true" disabled>PILIH DAPIL</option>');
+        dropdown.prop('selectedIndex', 0);
+        prov = $('#provinsi_2').val();
+        var spanProv = $('option:selected', this).attr('data-value');
+        $('#spanProv').html(spanProv);
+        GetDapil(prov);
+    });
+    
     $('#partai').on('change', function () {
         caleg2 = $('#edit_id').val();
         dapil2 = $('#dapil_2').val();
@@ -138,15 +154,6 @@ $(document).ready(function () {
                             hoverBorderColor: 'rgb(73, 139, 218)',
                             stack: 1,
                             data: spartai
-                        },
-                        {
-                            label: 'Suara Caleg',
-                            backgroundColor: 'rgba(255, 159, 64, 0.5)',
-                            borderColor: 'rgba(200, 200, 200, 0.75)',
-                            hoverBackgroundColor: 'rgb(255, 159, 64)',
-                            hoverBorderColor: 'rgb(255, 159, 64)',
-                            stack: 0,
-                            data: scaleg
                         }
                     ]
                 };
@@ -263,7 +270,7 @@ $(document).ready(function () {
         });
         dataTable3.ajax.url('application/simulasi/grid.php?caleg=' + caleg2 + '&dapil=' + dapil2 + '&partai=' + partai2).load();
     });
-    
+        
     $('#htps').on('click', function() {
         var jtps =$('#jtps').val();
         console.log(jtps)
