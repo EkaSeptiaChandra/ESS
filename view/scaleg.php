@@ -30,8 +30,7 @@
                        class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
                        width="100%">
                     <thead>
-                        <tr>
-                            <th class="nosort" style="width: auto">#</th>
+                        <tr>                            
                             <th><center>KODE CALEG</center></th>
                             <th><center>NAMA CALEG</center></th>
                             <th><center>DAPIL</center></th>
